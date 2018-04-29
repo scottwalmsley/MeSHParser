@@ -23,3 +23,57 @@ Apache 2.0
 ###### *Java version 8 update 161*
 MeSHParser needs the '''mtrees2018.bin''' file. This file can be downloaded from
 ftp://nlmpubs.nlm.nih.gov/online/mesh/MESH_FILES/meshtrees/ .
+
+## Components
+### *1. MeshParser*
+This class contains contains Main for example usage of reading the MeSH
+chemical terms.  The data is serialized for later deserialization in other
+functions.
+
+### *2. MeshMap*
+This file contains tree maps of indexed chemical kingdom, super, main and
+sub classes.
+
+
+## Specific usage examples
+
+#### *General Usage:*
+```java
+ // Instantiate a new MeshMap reader and storage class.
+ MeshMap meshMap = new MeshMap();
+
+  // Read the MeSH file and load the storage class.
+  meshMap.readMeshFile("meshfile.bin");
+ ```
+
+
+### *Serialization*
+The MeshMap class can be serialized through the MeshMap class function call.
+This creates a serialized bytecode object.   Within this class is an
+important serialization UID:
+```java
+ private static final long serialVersionUID = 1L;
+ ```
+..it is important that this is appropriately used in the context of your
+usage or a NoClassDef exception will occur, either on the same machine or
+between machines.  It has been set up appropriately in this repository
+and works as written.   Examples of serialization and de-serialization are
+as follows:
+
+##### *Serialization*
+```java
+ // Serialize the SmpdbMap class.
+ serializeSmpdMap("meshMap.ser", meshMap);
+```
+
+##### *Deserialization*
+```java
+ // Instantiate a new SmpdbFile class:
+ MeshMap meshMap = new MeshMap();
+
+ // Deserialization of a MeshMap into the MeshMap storage class
+ meshMap = (MeshMap) deserializeMap("meshMap.ser");
+```
+
+
+
