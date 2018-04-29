@@ -7,8 +7,8 @@ The MeSH (https://www.nlm.nih.gov/mesh/) is a listing of medical subject
 heading (MeSH) terms. This Java library was developed to facilitate extraction
 of key bits of information from MeSH and to use that information to build a
 local Neo4J storage database. MeSHParser is part of a larger project,
-Human Metabolome Database (HMDB) Network Amalgamation, and the MeSH chemical
-taxonomies are used as an overlay to chemical and metabolic network analysis.
+Metabolic Network Amalgamation, and the MeSH chemical taxonomies are used
+as an overlay for chemical and metabolic network analysis.
 
 ### *Usage*
 The MeSHParser is meant to be used as a .jar library.

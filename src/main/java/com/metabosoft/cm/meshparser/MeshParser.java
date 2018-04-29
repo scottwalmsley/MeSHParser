@@ -5,8 +5,17 @@ import java.io.IOException;
 import static com.metabosoft.cm.meshparser.MeshMap.deserializeMap;
 import static com.metabosoft.cm.meshparser.MeshMap.serializeMap;
 
+/**
+ * Class MeshParser
+ */
 public class MeshParser {
 
+    /**
+     *
+     * @param args
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static void main (String[] args) throws IOException, ClassNotFoundException {
         boolean load = true;
 
