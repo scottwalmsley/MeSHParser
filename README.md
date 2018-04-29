@@ -68,7 +68,7 @@ as follows:
 
 ##### *Deserialization*
 ```java
- // Instantiate a new SmpdbFile class:
+ // Instantiate a new MeshMap class:
  MeshMap meshMap = new MeshMap();
 
  // Deserialization of a MeshMap into the MeshMap storage class
