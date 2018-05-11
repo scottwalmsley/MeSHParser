@@ -1,3 +1,19 @@
+/*
+ * Copyright 2018  Scott J. Walmsley
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.metabosoft.cm.meshparser;
 
 import java.io.BufferedReader;
@@ -11,7 +27,10 @@ import java.io.Serializable;
 import java.util.Map;
 import java.util.TreeMap;
 
-
+/**
+ * Class MeshMap A storage class for serializable data.
+ * @implements Serializable
+ */
 public class MeshMap implements Serializable {
     private static final long serialVersionUID = 1L;
     private Map<String,String> kingdomIDX = new TreeMap<>();
@@ -19,7 +38,10 @@ public class MeshMap implements Serializable {
     private Map<String,String> mainClassIDX = new TreeMap<>();
     private Map<String,String> subClassIDX = new TreeMap<>();
 
-
+    /**
+     *
+     * @return
+     */
     public Map<String, String> getKingdomIDX() {
         return kingdomIDX;
     }
@@ -52,7 +74,11 @@ public class MeshMap implements Serializable {
         this.subClassIDX = subClassIDX;
     }
 
-
+    /**
+     *
+     * @param fh The file handle.
+     *
+     */
     public void readMeshFile(String fh){
 
         BufferedReader br = null;
@@ -97,6 +123,13 @@ public class MeshMap implements Serializable {
             e.printStackTrace();
         }
     }
+
+    /**
+     *
+     * @param fh
+     * @param meshMap
+     * @throws IOException
+     */
     public static final void serializeMap(String fh, Object meshMap) throws IOException {
         FileOutputStream fileOut =  new FileOutputStream(fh);
         ObjectOutputStream out = new ObjectOutputStream(fileOut);
@@ -105,6 +138,13 @@ public class MeshMap implements Serializable {
         fileOut.close();
     }
 
+    /**
+     *
+     * @param fh
+     * @return
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public static final Object deserializeMap(String fh)throws IOException, ClassNotFoundException {
         FileInputStream fileIn = new FileInputStream(fh);
         ObjectInputStream in = new ObjectInputStream(fileIn);
